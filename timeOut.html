@@ -42,6 +42,7 @@
   </head>
   <script>
     const deadline = new Date("September 30, 2022 18:00:00").getTime();
+
     const isTheWeekEnd = () => {
       const now = new Date().getTime();
       const t = deadline - now;
@@ -49,7 +50,7 @@
         return "It's the Week-end ";
       }
 
-      return "You have some work, it's note yet the week";
+      return "You have some work, it's not the week end yet";
     };
     const countDown = setInterval(function () {
       const now = new Date().getTime();
@@ -72,6 +73,18 @@
         document.getElementById("second").innerHTML = "0";
       }
     }, 1000);
+
+    // const monTimeout = setTimeout(() => {
+    //   console.log("Premier time out");
+    // }, 3000);
+    // const monTimeout2 = setTimeout(() => {
+    //   console.log("Deuxième timeout");
+    // }, 3000);
+    // const monTimeout3 = setTimeout(() => {
+    //   console.log("Troisième timeout");
+    // }, 1000);
+    // clearTimeout(monTimeout);
+    // console.log("Sans timeout");
   </script>
   <body>
     <h1>Countdown Clock</h1>

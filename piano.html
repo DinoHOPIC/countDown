@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      .note {
+        border: 2px solid black;
+        height: 100px;
+        width: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      body {
+        display: flex;
+        width: 1100px;
+        margin: 40px auto;
+        justify-content: space-between;
+      }
+
+      .pressed#noteDo {
+        background: red;
+      }
+
+      .pressed#noteRe {
+        background: green;
+      }
+
+      .pressed#noteMi {
+        background: yellow;
+      }
+
+      .pressed#noteFa {
+        background: purple;
+      }
+
+      .pressed#noteSol {
+        background: brown;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="note" id="noteDo">DO</div>
+    <div class="note" id="noteRe">RE</div>
+    <div class="note" id="noteMi">MI</div>
+    <div class="note" id="noteFa">FA</div>
+    <div class="note" id="noteSol">SOL</div>
+
+    <script>
+      const doSound = new Audio("./notes/piano1.mp3");
+      //   doSound.play();
+      const reSound = new Audio("./notes/piano2.mp3");
+      // reSound.play();
+      const miSound = new Audio("./notes/piano3.mp3");
+      // miSound.play();
+      const faSound = new Audio("./notes/piano4.mp3");
+      // faSound.play();
+      const solSound = new Audio("./notes/piano5.mp3");
+      // solSound.play();
+
+      const playDoSound = () => {
+        doSound.play();
+      };
+      const playReSound = () => {
+        reSound.play();
+      };
+
+      const playMiSound = () => {
+        miSound.play();
+      };
+
+      const playFaSound = () => {
+        faSound.play();
+      };
+      const playSolSound = () => {
+        solSound.play();
+      };
+
+      //   je recupere l'element en html
+
+      const noteDo = document.getElementById("noteDo");
+      const noteRe = document.getElementById("noteRe");
+      const noteMi = document.getElementById("noteMi");
+      const noteFa = document.getElementById("noteFa");
+      const noteSol = document.getElementById("noteSol");
+
+      //   je target cet élément auquel j'applique les méthode addEventListener
+      noteDo.addEventListener("click", playDoSound);
+      noteRe.addEventListener("click", playReSound);
+      noteMi.addEventListener("click", playMiSound);
+      noteFa.addEventListener("click", playFaSound);
+      noteSol.addEventListener("click", playSolSound);
+
+      document.addEventListener("keypress", (event) => {
+        console.log(event);
+        if (event.key === "a") {
+          playDoSound();
+        }
+        if (event.key === "z") {
+          playReSound();
+        }
+        if (event.key === "e") {
+          playMiSound();
+        }
+        if (event.key === "r") {
+          playFaSound();
+        }
+        if (event.key === "t") {
+          playSolSound();
+        }
+      });
+
+      doSound.addEventListener("play", (e) => {
+        noteDo.classList.add("pressed");
+      });
+
+      doSound.addEventListener("ended", (e) => {
+        noteDo.classList.remove("pressed");
+      });
+
+      reSound.addEventListener("play", (e2) => {
+        noteRe.classList.add("pressed");
+      });
+
+      reSound.addEventListener("ended", (e2) => {
+        noteRe.classList.remove("pressed");
+      });
+
+      miSound.addEventListener("play", (e3) => {
+        noteMi.classList.add("pressed");
+      });
+
+      miSound.addEventListener("ended", (e3) => {
+        noteMi.classList.remove("pressed");
+      });
+
+      faSound.addEventListener("play", (e4) => {
+        noteFa.classList.add("pressed");
+      });
+
+      faSound.addEventListener("ended", (e4) => {
+        noteFa.classList.remove("pressed");
+      });
+
+      solSound.addEventListener("play", (e5) => {
+        noteSol.classList.add("pressed");
+      });
+
+      solSound.addEventListener("ended", (e5) => {
+        noteSol.classList.remove("pressed");
+      });
+    </script>
+  </body>
+</html>
